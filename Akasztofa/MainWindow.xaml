@@ -7,6 +7,6 @@
         mc:Ignorable="d"
         Title="Akasztófa" Height="650" Width="600">
     <Grid>
-
+        <Label Content="Akasztófa"/>
     </Grid>
 </Window>
