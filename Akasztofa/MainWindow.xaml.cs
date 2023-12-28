@@ -20,9 +20,28 @@ namespace Akasztofa
     /// </summary>
     public partial class MainWindow : Window
     {
+        int akasztafaId = 0;
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void Test_Click(object sender, RoutedEventArgs e)
+        {   
+            if(akasztafaId <= 10)
+            {
+                akasztofaGrid.Children[akasztafaId].Visibility = Visibility;
+                akasztafaId++;
+            }
+            else
+            {
+                MessageBox.Show("Vége", "Vége", MessageBoxButton.OK);
+                akasztafaId = 0;
+                for (int i = 0; i <= 10; i++)
+                {
+                    akasztofaGrid.Children[i].Visibility = Visibility.Hidden;
+                }
+            }
         }
     }
 }
