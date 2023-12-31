@@ -8,30 +8,32 @@
         Title="Akasztófa" Height="700" Width="700">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="2*"/>
+            <RowDefinition Height="2.5*"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
 
         <!--Háttér-->
         <Rectangle Width="550" Height="350" Stroke="Black" StrokeThickness="5" Margin="0"/>
-        <Label Content="Akasztófa" Margin="109,20,0,354" Width="102" Background="White" HorizontalAlignment="Left" FontSize="20" HorizontalContentAlignment="Center" FontWeight="Bold" RenderTransformOrigin="0.52,0.732"/>
+        <Label Content="Akasztófa" Margin="109,35,0,354" Width="102" Background="White" HorizontalAlignment="Left" FontSize="20" HorizontalContentAlignment="Center" FontWeight="Bold" RenderTransformOrigin="0.52,0.732"/>
         <Image Source="background.jpg" Width="540" Height="340" Stretch="Fill"/>
 
         <!--Akasztófa-->
         <Grid x:Name="akasztofaGrid">
-            <Line X1="270" X2="400" Y1="250" Y2="250" Stroke="Black" StrokeThickness="5" x:Name="akasztofa1" Visibility="Hidden"/>
-            <Line X1="395" X2="395" Y1="100" Y2="250" Stroke="Black" StrokeThickness="5" x:Name="akasztofa2" Visibility="Hidden"/>
-            <Line X1="270" X2="400" Y1="100" Y2="100" Stroke="Black" StrokeThickness="5" x:Name="akasztofa3" Visibility="Hidden"/>
-            <Line X1="350" X2="400" Y1="100" Y2="140" Stroke="Black" StrokeThickness="5" x:Name="akasztofa4" Visibility="Hidden"/>
-            <Line X1="270" X2="270" Y1="100" Y2="140" Stroke="Black" StrokeThickness="5" x:Name="akasztofa5" Visibility="Hidden"/>
+            <Line X1="270" X2="400" Y1="270" Y2="270" Stroke="Black" StrokeThickness="5" x:Name="akasztofa1" Visibility="Hidden"/>
+            <Line X1="395" X2="395" Y1="120" Y2="270" Stroke="Black" StrokeThickness="5" x:Name="akasztofa2" Visibility="Hidden"/>
+            <Line X1="270" X2="400" Y1="120" Y2="120" Stroke="Black" StrokeThickness="5" x:Name="akasztofa3" Visibility="Hidden"/>
+            <Line X1="350" X2="400" Y1="120" Y2="160" Stroke="Black" StrokeThickness="5" x:Name="akasztofa4" Visibility="Hidden"/>
+            <Line X1="270" X2="270" Y1="120" Y2="155" Stroke="Black" StrokeThickness="5" x:Name="akasztofa5" Visibility="Hidden"/>
 
             <Ellipse Stroke="Black" StrokeThickness="5" Width="30" Height="30" Margin="210, 130, 350, 270" x:Name="akasztofa6" Visibility="Hidden"/>
-            <Line X1="270" X2="270" Y1="160" Y2="200" Stroke="Black" StrokeThickness="5" x:Name="akasztofa7" Visibility="Hidden"/>
-            <Line X1="250" X2="270" Y1="160" Y2="180" Stroke="Black" StrokeThickness="5" x:Name="akasztofa8" Visibility="Hidden"/>
-            <Line X1="290" X2="270" Y1="160" Y2="180" Stroke="Black" StrokeThickness="5" x:Name="akasztofa9" Visibility="Hidden"/>
-            <Line X1="250" X2="270" Y1="220" Y2="200" Stroke="Black" StrokeThickness="5" x:Name="akasztofa10" Visibility="Hidden"/>
-            <Line X1="290" X2="270" Y1="220" Y2="200" Stroke="Black" StrokeThickness="5" x:Name="akasztofa11" Visibility="Hidden"/>
+            <Line X1="270" X2="270" Y1="180" Y2="220" Stroke="Black" StrokeThickness="5" x:Name="akasztofa7" Visibility="Hidden"/>
+            <Line X1="250" X2="270" Y1="180" Y2="200" Stroke="Black" StrokeThickness="5" x:Name="akasztofa8" Visibility="Hidden"/>
+            <Line X1="290" X2="270" Y1="180" Y2="200" Stroke="Black" StrokeThickness="5" x:Name="akasztofa9" Visibility="Hidden"/>
+            <Line X1="250" X2="270" Y1="240" Y2="220" Stroke="Black" StrokeThickness="5" x:Name="akasztofa10" Visibility="Hidden"/>
+            <Line X1="290" X2="270" Y1="240" Y2="220" Stroke="Black" StrokeThickness="5" x:Name="akasztofa11" Visibility="Hidden"/>
         </Grid>
+        <Label Content="Pontszám: 0" FontSize="20" FontWeight="Bold" x:Name="scoreLabel" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,20"/>
+        <Label Content="Legnagyobb pontszám: 0" HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
         
         <!--Játéktér-->
         <Button Content="Test" Height="30" Width="100" Grid.Row="1" x:Name="Test" Click="Test_Click"/>
