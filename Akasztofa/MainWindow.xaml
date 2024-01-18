@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Akasztofa"
         mc:Ignorable="d"
-        Title="Akasztófa" Height="700" Width="700">
+        Title="Akasztófa" Height="700" Width="700" ResizeMode="NoResize">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="2.5*"/>
@@ -36,7 +36,18 @@
         <Label Content="Legnagyobb pontszám: 0" HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
         
         <!--Játéktér-->
-        <Button Content="Test" Height="30" Width="100" Grid.Row="1" x:Name="Test" Click="Test_Click"/>
+        <StackPanel x:Name="wordSP" Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top">
+        
+        </StackPanel>
+
+        <StackPanel Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Horizontal">
+            <Label Content="Betű:" FontSize="20" FontWeight="Bold"/>
+            <TextBox Width="30" Height="30" Margin="10,0,20,0" x:Name="wordTB" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="20" MaxLength="1"/>
+            <Button x:Name="guessBtn" Content="Guess" Width="100" Height="30" Click="guessBtn_Click"/>
+        </StackPanel>
+        <StackPanel Grid.Row="2" VerticalAlignment="Bottom">
+            <Label x:Name="usedLetters"  HorizontalAlignment="Center" Content=""/>
+        </StackPanel>
 
     </Grid>
 </Window>
