@@ -1,0 +1,36 @@
+﻿<Window x:Class="Akasztofa.StartWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Akasztofa"
+        mc:Ignorable="d"
+        Title="StartWindow" Height="450" Width="600">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="3*"/>
+        </Grid.RowDefinitions>
+        
+        <StackPanel>
+            <Label Content=" AKASZTÓFA"  HorizontalAlignment="Center" FontSize="32" FontWeight="ExtraBold"/>
+            <Label Content="Válasszon témát!" HorizontalAlignment="Center" FontSize="16" FontWeight="Black"/>
+        </StackPanel>
+        
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <Button Content="Téma1" Height="100" Width="250" Grid.Row="0" Grid.Column="0" x:Name="tema1BTN" Click="tema1BTN_Click"/>
+            <Button Content="Téma2" Height="100" Width="250" Grid.Row="0" Grid.Column="1" x:Name="tema2BTN" Click="tema2BTN_Click"/>
+            <Button Content="Téma3" Height="100" Width="250" Grid.Row="1" Grid.Column="0" x:Name="tema3BTN" Click="tema3BTN_Click"/>
+            <Button Content="Téma4" Height="100" Width="250" Grid.Row="1" Grid.Column="1" x:Name="tema4BTN" Click="tema4BTN_Click"/>
+        </Grid>
+    </Grid>
+</Window>

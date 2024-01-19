@@ -26,10 +26,11 @@ namespace Akasztofa
         int score = 0;
         string answer = "";
         List<string> lettersGuessed;
-        public MainWindow()
+        public MainWindow(string theme)
         {
             InitializeComponent();
             GenerateTheWord();
+            themeLabel.Content = theme;
         }
 
         private void GenerateTheWord()
@@ -144,6 +145,16 @@ namespace Akasztofa
                 akasztofaResz.Visibility = Visibility.Hidden;
             }
 
+        }
+
+        private void closeBtn_Click(object sender, RoutedEventArgs e)
+        {
+            if(MessageBox.Show("Biztosan kilép? Elveszti a pontszámát!", "Kérdés", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+            {
+                StartWindow startWindow = new StartWindow();
+                this.Close();
+                startWindow.ShowDialog();
+            }
         }
     }
 }
