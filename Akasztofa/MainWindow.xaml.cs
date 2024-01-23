@@ -20,24 +20,25 @@ namespace Akasztofa
     /// </summary>
     public partial class MainWindow : Window
     {
-        List<string> words = new List<string> { "HELLO", "LEVENTE", "JEDLIK" };
+        List<string> words = new List<string> { "EEEEEEEEEE", "LELELELELEE", "JEDL IK" };
         int rightGuesses = 0;
         int akasztofaIndex = 0;
         int score = 0;
+        int wordLength;
         string answer = "";
         List<string> lettersGuessed;
         public MainWindow(string theme)
         {
             InitializeComponent();
-            GenerateTheWord();
+            wordLength = GenerateTheWord();
             themeLabel.Content = theme;
         }
 
-        private void GenerateTheWord()
+        private int GenerateTheWord()
         {
             Random r = new Random();
             int index = r.Next(words.Count);
-
+            int length = 0;
             string word = words[index];
             answer = word;
             lettersGuessed = new List<string>();
@@ -50,20 +51,26 @@ namespace Akasztofa
                 label.Height = 50;
                 label.HorizontalContentAlignment = HorizontalAlignment.Center;
                 label.VerticalContentAlignment = VerticalAlignment.Center;
-                label.BorderBrush = Brushes.Black;
-                label.BorderThickness = new Thickness(0, 0, 0, 5);
-                label.Margin = new Thickness(0, 0, 10, 0);
-                label.FontSize = 20;
-                label.Foreground = Brushes.White;
+                if(character.ToString() != " ")
+                {
+                    label.BorderBrush = Brushes.Black;
+                    label.BorderThickness = new Thickness(0, 0, 0, 5);
+                    label.Margin = new Thickness(0, 0, 10, 0);
+                    label.FontSize = 20;
+                    label.Foreground = Brushes.White;
+                    length++;
+                }
 
                 wordSP.Children.Add(label);
+                
             }
+            return length;
         }
 
         private void guessBtn_Click(object sender, RoutedEventArgs e)
         {
             string letter = wordTB.Text.ToUpper();
-            if (letter.All(Char.IsLetter))
+            if (!string.IsNullOrEmpty(wordTB.Text) && letter.All(Char.IsLetter))
             {
                 if (!lettersGuessed.Contains(letter))
                 {
@@ -90,7 +97,6 @@ namespace Akasztofa
 
         private void CheckifLetter_inAnswer(string letter)
         {
-            int answerLength = wordSP.Children.Count;
             if (answer.Contains(letter))
             {
                 foreach (Label label in wordSP.Children)
@@ -113,7 +119,7 @@ namespace Akasztofa
 
 
             //győzelem
-            if (rightGuesses == answerLength)
+            if (rightGuesses == wordLength)
             {
 
                 MessageBox.Show("Nyert", "Nyert", MessageBoxButton.OK);
@@ -138,7 +144,7 @@ namespace Akasztofa
             akasztofaIndex = 0;
             wordSP.Children.Clear();
             usedLetters.Content = "";
-            GenerateTheWord();
+            wordLength = GenerateTheWord();
 
             foreach (UIElement akasztofaResz in akasztofaGrid.Children)
             {
@@ -154,6 +160,19 @@ namespace Akasztofa
                 StartWindow startWindow = new StartWindow();
                 this.Close();
                 startWindow.ShowDialog();
+            }
+        }
+
+        private void Window_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                guessBtn_Click(sender,e);
+            }
+
+            if(e.Key == Key.Escape)
+            {
+                closeBtn_Click(sender, e);
             }
         }
     }

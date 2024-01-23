@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Akasztofa"
         mc:Ignorable="d"
+        PreviewKeyDown="Window_PreviewKeyDown"
         Title="Akasztófa" Height="700" Width="700" ResizeMode="NoResize">
     <Grid>
         <Grid.RowDefinitions>
