@@ -20,7 +20,7 @@ namespace Akasztofa
     /// </summary>
     public partial class MainWindow : Window
     {
-        List<string> words = new List<string> { "EEEEEEEEEE", "LELELELELEE", "JEDL IK" };
+        List<string> words = new List<string> { "EEE EEEEEEE EEEE", "AAAA" };
         int rightGuesses = 0;
         int akasztofaIndex = 0;
         int score = 0;
@@ -34,7 +34,7 @@ namespace Akasztofa
             themeLabel.Content = theme;
         }
 
-        private int GenerateTheWord()
+        private int GenerateTheWord() //max 16 char
         {
             Random r = new Random();
             int index = r.Next(words.Count);
@@ -47,7 +47,7 @@ namespace Akasztofa
             {
                 Label label = new Label();
                 label.Content = character;
-                label.Width = 50;
+                label.Width = 30;
                 label.Height = 50;
                 label.HorizontalContentAlignment = HorizontalAlignment.Center;
                 label.VerticalContentAlignment = VerticalAlignment.Center;

@@ -7,6 +7,15 @@
         mc:Ignorable="d"
         Title="StartWindow" Height="450" Width="600">
     <Grid>
+        <Grid.Resources>
+            <Style TargetType="Button">
+                <Setter Property="Width" Value="250"/>
+                <Setter Property="Height" Value="100"/>
+                <Setter Property="FontSize" Value="20"/>
+                <Setter Property="FontWeight" Value="Bold"/>
+            </Style>
+        </Grid.Resources>
+        
         <Grid.RowDefinitions>
             <RowDefinition/>
             <RowDefinition Height="3*"/>
@@ -27,10 +36,10 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
 
-            <Button Content="Videójáték" Height="100" Width="250" Grid.Row="0" Grid.Column="0" x:Name="tema1BTN" Click="tema1BTN_Click"/>
-            <Button Content="Film" Height="100" Width="250" Grid.Row="0" Grid.Column="1" x:Name="tema2BTN" Click="tema2BTN_Click"/>
-            <Button Content="Sport" Height="100" Width="250" Grid.Row="1" Grid.Column="0" x:Name="tema3BTN" Click="tema3BTN_Click"/>
-            <Button Content="Márka" Height="100" Width="250" Grid.Row="1" Grid.Column="1" x:Name="tema4BTN" Click="tema4BTN_Click"/>
+            <Button Content="VIDEÓJÁTÉK" Grid.Row="0" Grid.Column="0" x:Name="tema1BTN" Click="tema1BTN_Click"/>
+            <Button Content="FILM" Grid.Row="0" Grid.Column="1" x:Name="tema2BTN" Click="tema2BTN_Click"/>
+            <Button Content="SPORT" Grid.Row="1" Grid.Column="0" x:Name="tema3BTN" Click="tema3BTN_Click"/>
+            <Button Content="MÁRKA" Grid.Row="1" Grid.Column="1" x:Name="tema4BTN" Click="tema4BTN_Click"/>
         </Grid>
     </Grid>
 </Window>
