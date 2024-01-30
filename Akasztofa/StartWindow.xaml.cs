@@ -27,28 +27,28 @@ namespace Akasztofa
 
         private void tema1BTN_Click(object sender, RoutedEventArgs e)
         {
-            mainWindow = new MainWindow("téma1");
+            mainWindow = new MainWindow("Videójáték");
             this.Close();
             mainWindow.ShowDialog();
         }
 
         private void tema2BTN_Click(object sender, RoutedEventArgs e)
         {
-            mainWindow = new MainWindow("téma2");
+            mainWindow = new MainWindow("Film");
             this.Close();
             mainWindow.ShowDialog();
         }
 
         private void tema3BTN_Click(object sender, RoutedEventArgs e)
         {
-            mainWindow = new MainWindow("téma3");
+            mainWindow = new MainWindow("Sport");
             this.Close();
             mainWindow.ShowDialog();
         }
 
         private void tema4BTN_Click(object sender, RoutedEventArgs e)
         {
-            mainWindow = new MainWindow("téma4");
+            mainWindow = new MainWindow("Márka");
             this.Close();
             mainWindow.ShowDialog();
         }
