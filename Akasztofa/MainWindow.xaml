@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         PreviewKeyDown="Window_PreviewKeyDown"
         Title="Akasztófa" Height="700" Width="700" ResizeMode="NoResize">
-    <Grid>
+    <Grid Background="Beige">
         <Grid.RowDefinitions>
             <RowDefinition Height="2.5*"/>
             <RowDefinition/>

@@ -57,7 +57,7 @@ namespace Akasztofa
                     label.BorderThickness = new Thickness(0, 0, 0, 5);
                     label.Margin = new Thickness(0, 0, 10, 0);
                     label.FontSize = 20;
-                    label.Foreground = Brushes.White;
+                    label.Foreground = Brushes.Beige;
                     length++;
                 }
 
