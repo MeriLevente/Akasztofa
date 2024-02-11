@@ -27,10 +27,12 @@ namespace Akasztofa
         int rightGuesses = 0;
         int akasztofaIndex = 0;
         int score = 0;
+        int highscore = 0;
         int wordLength;
         string answer = "";
         List<string> lettersGuessed;
         string fileName;
+        string highscoreFileName = "highscore.txt";
         Dictionary<string, string> fileThemes = new Dictionary<string, string>
     {
         {"videogame.json", "Videójáték"},
@@ -46,6 +48,12 @@ namespace Akasztofa
             string theme = fileThemes[fileName];
             themeLabel.Content = theme;
             this.fileName = fileName;
+            if (File.Exists(highscoreFileName))
+            {
+                string highscoreText = File.ReadAllText(highscoreFileName);
+                highscore = int.Parse(highscoreText);
+            }
+            highScoreLabel.Content = $"Legnagyobb pontszám: {highscore}";
         }
 
         private int GenerateTheWord(string fileName)
@@ -139,6 +147,12 @@ namespace Akasztofa
             {
 
                 MessageBox.Show("Nyert", "Nyert", MessageBoxButton.OK);
+                if (score > highscore)
+                {
+                    highscore = score;
+
+                    highScoreLabel.Content = $"Legnagyobb pontszám: {highscore}";
+                }
                 Restart();
 
             }
@@ -146,6 +160,11 @@ namespace Akasztofa
             if (akasztofaIndex == 11)
             {
                 MessageBox.Show($"Game over, Pontszám: {score}", "Vége", MessageBoxButton.OK, MessageBoxImage.Error);
+                if (score > highscore)
+                {
+                    highscore = score;
+                    highScoreLabel.Content = $"Legnagyobb pontszám: {highscore}";
+                }
                 Restart();
                 score = 0;
                 scoreLabel.Content = $"Pontszám: 0";
@@ -171,6 +190,7 @@ namespace Akasztofa
         {
             if(MessageBox.Show("Biztosan kilép? Elveszti a pontszámát!", "Kérdés", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
             {
+                File.WriteAllText(highscoreFileName, highscore.ToString());
                 StartWindow startWindow = new StartWindow();
                 this.Close();
                 startWindow.ShowDialog();

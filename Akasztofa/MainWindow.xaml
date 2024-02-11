@@ -35,7 +35,7 @@
             <Line X1="290" X2="270" Y1="240" Y2="220" Stroke="Black" StrokeThickness="5" x:Name="akasztofa11" Visibility="Hidden"/>
         </Grid>
         <Label Content="Pontszám: 0" FontSize="20" FontWeight="Bold" x:Name="scoreLabel" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,20"/>
-        <Label Content="Legnagyobb pontszám: 0" HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
+        <Label Content="Legnagyobb pontszám: 0" HorizontalAlignment="Center" VerticalAlignment="Bottom" x:Name="highScoreLabel"/>
         
         <!--Játéktér-->
         <StackPanel x:Name="wordSP" Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top">
