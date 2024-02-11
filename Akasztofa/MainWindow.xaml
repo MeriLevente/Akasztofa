@@ -48,7 +48,10 @@
             <Button x:Name="guessBtn" Content="Guess" Width="100" Height="30" Click="guessBtn_Click"/>
         </StackPanel>
         <StackPanel Grid.Row="2" VerticalAlignment="Bottom">
-            <Label x:Name="usedLetters"  HorizontalAlignment="Center" Content=""/>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Label Content="Elhasznált betűk:" FontSize="14" FontWeight="Bold"/>
+                <Label x:Name="usedLetters" Content="" FontSize="14" FontWeight="Bold"/>
+            </StackPanel>
             <Button Content="Vissza" HorizontalAlignment="Right" Height="30" Width="100" Margin="10" x:Name="closeBtn" Click="closeBtn_Click"/>
         </StackPanel>
 
