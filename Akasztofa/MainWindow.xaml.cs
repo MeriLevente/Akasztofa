@@ -120,7 +120,7 @@ namespace Akasztofa
             {
                 MessageBox.Show("Csak betűket lehet megadni!", "Hiba", MessageBoxButton.OK, MessageBoxImage.Error);
                 wordTB.Text = "";
-                wordTB.Focus();
+                wordTB.Focus(); 
             }
 
         }
