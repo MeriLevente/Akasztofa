@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -12,6 +13,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.IO;
+using Akasztofa;
+using Newtonsoft.Json;
 
 namespace Akasztofa
 {
@@ -20,28 +24,41 @@ namespace Akasztofa
     /// </summary>
     public partial class MainWindow : Window
     {
-        List<string> words = new List<string> { "EEE EEEEEEE EEEE", "AAAA" };
         int rightGuesses = 0;
         int akasztofaIndex = 0;
         int score = 0;
         int wordLength;
         string answer = "";
         List<string> lettersGuessed;
-        public MainWindow(string theme)
+        string fileName;
+        Dictionary<string, string> fileThemes = new Dictionary<string, string>
+    {
+        {"videogame.json", "Videójáték"},
+        {"film.json", "Film"},
+        {"sport.json", "Sport"},
+        {"brand.json", "Márka"}
+    };
+
+        public MainWindow(string fileName)
         {
             InitializeComponent();
-            wordLength = GenerateTheWord();
+            wordLength = GenerateTheWord(fileName);
+            string theme = fileThemes[fileName];
             themeLabel.Content = theme;
+            this.fileName = fileName;
         }
 
-        private int GenerateTheWord() //max 16 char
+        private int GenerateTheWord(string fileName)
         {
+            string json = File.ReadAllText(fileName);
+            List<string> words = JsonConvert.DeserializeObject<List<string>>(json);
             Random r = new Random();
             int index = r.Next(words.Count);
-            int length = 0;
             string word = words[index];
+            word = word.ToUpper();
             answer = word;
             lettersGuessed = new List<string>();
+            int length = 0;
 
             foreach (char character in word)
             {
@@ -51,7 +68,7 @@ namespace Akasztofa
                 label.Height = 50;
                 label.HorizontalContentAlignment = HorizontalAlignment.Center;
                 label.VerticalContentAlignment = VerticalAlignment.Center;
-                if(character.ToString() != " ")
+                if (character.ToString() != " ")
                 {
                     label.BorderBrush = Brushes.Black;
                     label.BorderThickness = new Thickness(0, 0, 0, 5);
@@ -62,7 +79,7 @@ namespace Akasztofa
                 }
 
                 wordSP.Children.Add(label);
-                
+
             }
             return length;
         }
@@ -101,7 +118,7 @@ namespace Akasztofa
             {
                 foreach (Label label in wordSP.Children)
                 {
-                    if (label.Content.ToString() == letter)
+                    if (label.Content.ToString().Equals(letter))
                     {
                         label.Foreground = Brushes.Black;
                         rightGuesses++;
@@ -110,7 +127,7 @@ namespace Akasztofa
                     }
                 }
             }
-            else //nincs benne ilyen betű
+            else
             {
                 akasztofaGrid.Children[akasztofaIndex].Visibility = Visibility.Visible;
                 usedLetters.Content += $"{letter} ";
@@ -118,7 +135,6 @@ namespace Akasztofa
             }
 
 
-            //győzelem
             if (rightGuesses == wordLength)
             {
 
@@ -127,7 +143,6 @@ namespace Akasztofa
 
             }
 
-            //Game over
             if (akasztofaIndex == 11)
             {
                 MessageBox.Show($"Game over, Pontszám: {score}", "Vége", MessageBoxButton.OK, MessageBoxImage.Error);
@@ -144,8 +159,7 @@ namespace Akasztofa
             akasztofaIndex = 0;
             wordSP.Children.Clear();
             usedLetters.Content = "";
-            wordLength = GenerateTheWord();
-
+            wordLength = GenerateTheWord(fileName);
             foreach (UIElement akasztofaResz in akasztofaGrid.Children)
             {
                 akasztofaResz.Visibility = Visibility.Hidden;

@@ -20,6 +20,8 @@ namespace Akasztofa
     public partial class StartWindow : Window
     {
         MainWindow mainWindow;
+        string fileName;
+
         public StartWindow()
         {
             InitializeComponent();
@@ -27,28 +29,32 @@ namespace Akasztofa
 
         private void tema1BTN_Click(object sender, RoutedEventArgs e)
         {
-            mainWindow = new MainWindow("Videójáték");
+            fileName = "videogame.json";
+            mainWindow = new MainWindow(fileName);
             this.Close();
             mainWindow.ShowDialog();
         }
 
         private void tema2BTN_Click(object sender, RoutedEventArgs e)
         {
-            mainWindow = new MainWindow("Film");
+            fileName = "film.json";
+            mainWindow = new MainWindow(fileName);
             this.Close();
             mainWindow.ShowDialog();
         }
 
         private void tema3BTN_Click(object sender, RoutedEventArgs e)
         {
-            mainWindow = new MainWindow("Sport");
+            fileName = "sport.json";
+            mainWindow = new MainWindow(fileName);
             this.Close();
             mainWindow.ShowDialog();
         }
 
         private void tema4BTN_Click(object sender, RoutedEventArgs e)
         {
-            mainWindow = new MainWindow("Márka");
+            fileName = "brand.json";
+            mainWindow = new MainWindow(fileName);
             this.Close();
             mainWindow.ShowDialog();
         }

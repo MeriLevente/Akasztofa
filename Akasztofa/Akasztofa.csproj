@@ -16,11 +16,30 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Resource Include="background.jpg" />
     <Resource Include="img\film2.png" />
     <Resource Include="img\marka2.png" />
     <Resource Include="img\ps.png" />
     <Resource Include="img\sport.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="brand.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="film.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="sport.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="videogame.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>
