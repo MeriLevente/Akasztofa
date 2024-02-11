@@ -151,7 +151,7 @@ namespace Akasztofa
             if (rightGuesses == wordLength)
             {
 
-                MessageBox.Show("Nyert", "Nyert", MessageBoxButton.OK);
+                MessageBox.Show("Gratulálok Ön nyert!", "Nyert", MessageBoxButton.OK, MessageBoxImage.Asterisk);
                 if (score > highscore)
                 {
                     highscore = score;
@@ -164,6 +164,7 @@ namespace Akasztofa
 
             if (akasztofaIndex == 11)
             {
+                RevealAnswer();
                 MessageBox.Show($"Game over, Pontszám: {score}", "Vége", MessageBoxButton.OK, MessageBoxImage.Error);
                 if (score > highscore)
                 {
@@ -174,6 +175,14 @@ namespace Akasztofa
                 score = 0;
                 scoreLabel.Content = $"Pontszám: 0";
 
+            }
+        }
+
+        private void RevealAnswer()
+        {
+            foreach (Label label in wordSP.Children)
+            {
+                label.Foreground = Brushes.Black;
             }
         }
 
