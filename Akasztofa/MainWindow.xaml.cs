@@ -32,7 +32,8 @@ namespace Akasztofa
         string answer = "";
         List<string> lettersGuessed;
         string fileName;
-        string highscoreFileName = "highscore.txt";
+        string highscoreFileName = "highscore.json";
+        string theme;
         Dictionary<string, string> fileThemes = new Dictionary<string, string>
     {
         {"videogame.json", "Videójáték"},
@@ -45,13 +46,17 @@ namespace Akasztofa
         {
             InitializeComponent();
             wordLength = GenerateTheWord(fileName);
-            string theme = fileThemes[fileName];
+            theme = fileThemes[fileName];
             themeLabel.Content = theme;
             this.fileName = fileName;
             if (File.Exists(highscoreFileName))
             {
-                string highscoreText = File.ReadAllText(highscoreFileName);
-                highscore = int.Parse(highscoreText);
+                string json = File.ReadAllText(highscoreFileName);
+                Dictionary<string, int> highscores = JsonConvert.DeserializeObject<Dictionary<string, int>>(json);
+                if (highscores.ContainsKey(theme))
+                {
+                    highscore = highscores[theme];
+                }
             }
             highScoreLabel.Content = $"Legnagyobb pontszám: {highscore}";
         }
@@ -190,7 +195,15 @@ namespace Akasztofa
         {
             if(MessageBox.Show("Biztosan kilép? Elveszti a pontszámát!", "Kérdés", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
             {
-                File.WriteAllText(highscoreFileName, highscore.ToString());
+                if (File.Exists(highscoreFileName))
+                {
+                    string json = File.ReadAllText(highscoreFileName);
+                    Dictionary<string, int> highscores = JsonConvert.DeserializeObject<Dictionary<string, int>>(json);
+                    highscores[theme] = highscore;
+                    json = JsonConvert.SerializeObject(highscores);
+                    File.WriteAllText(highscoreFileName, json);
+                }
+
                 StartWindow startWindow = new StartWindow();
                 this.Close();
                 startWindow.ShowDialog();
