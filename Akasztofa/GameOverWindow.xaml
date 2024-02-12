@@ -1,0 +1,20 @@
+﻿<Window x:Class="Akasztofa.GameOverWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Akasztofa"
+        xmlns:gif="http://wpfanimatedgif.codeplex.com"
+        mc:Ignorable="d"
+        Title="GameOverWindow" Height="400" Width="500" ResizeMode="NoResize">
+    <Grid Background="Beige">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="6*"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Label Content="Game Over" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="23" FontWeight="Bold" BorderThickness="0,0,0,3" BorderBrush="Black"/>
+        <Image gif:ImageBehavior.AnimatedSource="img/gameover.gif" Grid.Row="1" Margin="2"/>
+        <Button Content="Új játék" Grid.Row="3" Height="20" Width="100" Click="Button_Click"/>
+    </Grid>
+</Window>

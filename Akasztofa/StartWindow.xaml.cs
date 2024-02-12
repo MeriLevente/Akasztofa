@@ -22,7 +22,7 @@ namespace Akasztofa
         MainWindow mainWindow;
         string fileName;
 
-        public StartWindow()
+       public StartWindow()
         {
             InitializeComponent();
         }

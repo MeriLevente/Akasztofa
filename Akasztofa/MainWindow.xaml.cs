@@ -165,7 +165,9 @@ namespace Akasztofa
             if (akasztofaIndex == 11)
             {
                 RevealAnswer();
-                MessageBox.Show($"Game over, Pontszám: {score}", "Vége", MessageBoxButton.OK, MessageBoxImage.Error);
+                GameOverWindow gow = new GameOverWindow();
+                gow.ShowDialog();
+                //MessageBox.Show($"Game over, Pontszám: {score}", "Vége", MessageBoxButton.OK, MessageBoxImage.Error);
                 if (score > highscore)
                 {
                     highscore = score;
