@@ -40,6 +40,9 @@
     <None Update="film.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="highscore.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="sport.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
